@@ -14,6 +14,7 @@ npm run dev
 
 # Docker
 ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
+[![Build and Push Docker image](https://github.com/Investment-Alert-System/Investment-Alert-Frontend/actions/workflows/build-and-push-docker.yaml/badge.svg)](https://github.com/Investment-Alert-System/Investment-Alert-Frontend/actions/workflows/build-and-push-docker.yaml)
 ```shell
 docker build -t telekom-project-launchpad .
 docker run -p 5173:5173 telekom-project-launchpad
