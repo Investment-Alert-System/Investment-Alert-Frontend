@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "jest --config jest.config.mjs",
+    "test:watch": "jest --watch --config jest.config.mjs"
   },
   "dependencies": {
     "@telekom/scale-components": "^3.0.0-beta.150",
@@ -16,7 +18,7 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.24.3",
+    "@babel/preset-env": "^7.24.4",
     "@babel/preset-react": "^7.24.1",
     "@testing-library/jest-dom": "^6.4.2",
     "@testing-library/react": "^14.2.2",
@@ -34,6 +36,7 @@
     "jest-environment-jsdom": "^29.7.0",
     "postcss": "^8.4.38",
     "tailwindcss": "^3.4.1",
+    "ts-jest": "^29.1.2",
     "typescript": "^5.2.2",
     "vite": "^5.2.0"
   }
