@@ -31,7 +31,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ghcr.io/investment-alert-system/investment-alert-frontend /app:${{ github.sha }}
+          tags: ghcr.io/investment-alert-system/investment-alert-frontend/app:${{ github.sha }}
           labels: |
-            org.opencontainers.image.source=investment-alert-system/stock-data-streamer
+            org.opencontainers.image.source=investment-alert-system/investment-alert-frontend
             org.opencontainers.image.author=philipppollmann
