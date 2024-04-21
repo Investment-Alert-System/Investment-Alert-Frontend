@@ -22,7 +22,7 @@ docker run -p 5173:5173 telekom-project-launchpad
 
 # Test project
 ![Jest](https://img.shields.io/badge/-jest-%23C21325?style=for-the-badge&logo=jest&logoColor=white)
-[![Continuous Integration](https://github.com/Investment-Alert-System/Investment-Alert-Frontend/actions/workflows/run-jest-tests.yaml/badge.svg)](https://github.com/Investment-Alert-System/Investment-Alert-Frontend/actions/workflows/run-jest-tests.yaml)
+[![Continuous Integration](https://github.com/Investment-Alert-System/Investment-Alert-Frontend/actions/workflows/run-jest-tests.yaml/badge.svg?branch=main)](https://github.com/Investment-Alert-System/Investment-Alert-Frontend/actions/workflows/run-jest-tests.yaml)
 ```shell
 npm test
 # or
