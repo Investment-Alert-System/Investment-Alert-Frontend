@@ -18,14 +18,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '16'
-
-      - name: Install dependencies
-        run: npm install
-
       - name: Log in to GitHub Container Registry
         uses: docker/login-action@v1
         with:
@@ -39,7 +31,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ghcr.io/philipppollmann/telekom-project-launchpad/app:${{ github.sha }}
+          tags: ghcr.io/investment-alert-system/investment-alert-frontend /app:${{ github.sha }}
           labels: |
-            org.opencontainers.image.source=github.com/philipppollmann/Telekom-Project-Launchpad
+            org.opencontainers.image.source=investment-alert-system/stock-data-streamer
             org.opencontainers.image.author=philipppollmann
