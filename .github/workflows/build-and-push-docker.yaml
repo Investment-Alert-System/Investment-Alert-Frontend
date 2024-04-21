@@ -4,13 +4,6 @@ on:
   push:
     branches:
       - main
-    paths:
-      - '**.ts'
-      - '**.tsx'
-      - 'vite.config.ts'
-      - 'Dockerfile'
-      - 'package.json'
-      - 'package-lock.json'
 
 jobs:
   build-and-push:
