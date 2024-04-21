@@ -6,7 +6,7 @@
 > [!NOTE]
 > This project can be used to navigate to other services of Deutsche Telekom. 
 > It is a simple project that uses React, TypeScript, Vite, and TailwindCSS.
-
+# Local development
 ```shell
 npm install
 npm run dev
@@ -16,8 +16,8 @@ npm run dev
 ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
 [![Build and Push Docker image](https://github.com/Investment-Alert-System/Investment-Alert-Frontend/actions/workflows/build-and-push-docker.yaml/badge.svg?branch=main)](https://github.com/Investment-Alert-System/Investment-Alert-Frontend/actions/workflows/build-and-push-docker.yaml)
 ```shell
-docker build -t telekom-project-launchpad .
-docker run -p 5173:5173 telekom-project-launchpad
+docker build -t investment-alert-frontend .
+docker run -p 3000:3000 investment-alert-frontend
 ```
 
 # Test project
