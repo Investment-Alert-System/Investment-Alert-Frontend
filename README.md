@@ -28,3 +28,5 @@ npm test
 # or
 npm run test:watch
 ```
+# Preview example
+![](./img/Preview.png)

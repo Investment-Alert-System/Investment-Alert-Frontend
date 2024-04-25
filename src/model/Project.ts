@@ -14,5 +14,4 @@ export class Project {
         this.target = target;
         this.iconSrc = iconSrc;
     }
-
 }

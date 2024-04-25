@@ -1,8 +1,12 @@
 import {ScaleAppHeader} from "@telekom/scale-components-react";
 
-function AppHeader(){
-    <ScaleAppHeader></ScaleAppHeader>
+export function AppHeader(){
+    return (
+        <>
+            <div className="top-0">
+                <ScaleAppHeader>
+                </ScaleAppHeader>
+            </div>
+        </>
+    )
 }
-
-export default AppHeader;
-export {}
