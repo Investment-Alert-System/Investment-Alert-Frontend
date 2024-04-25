@@ -13,7 +13,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
                 <ScaleCard to={project.to} target={project.target}>
                     <div>
                         <img
-                            className="h-48 justify-center items-center" // tailwindcss class
+                            className="h-48 justify-center items-center ml-14" // tailwindcss class
                             src={project.iconSrc}
                             alt={`${project.title} Icon`}
                         />
