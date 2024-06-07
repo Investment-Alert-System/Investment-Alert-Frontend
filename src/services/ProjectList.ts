@@ -26,7 +26,7 @@ export default function getProjects(): Project[]{
             "",
             "http://alertmanager.localhost",
             "",
-            "https://devopy.io/wp-content/uploads/2019/02/bell_260.svg"
+            "https://www.cloudron.io/store/icons/io.prometheus.alertmanager.cloudronapp.png"
         ),
         new Project(
             "Grafana",
@@ -72,7 +72,7 @@ export default function getProjects(): Project[]{
             "Discord",
             "A Discord Server where you can see the alerts",
             "",
-            "https://github.com/Investment-Alert-System/Investment-Alert-Frontend",
+            "https://discord.gg/EByYdu7d",
             "",
             "https://static-00.iconduck.com/assets.00/discord-icon-2048x2048-o5mluhz2.png"
         ),

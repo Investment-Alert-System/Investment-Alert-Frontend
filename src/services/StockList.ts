@@ -1,4 +1,5 @@
 const axios = require('axios');
+import {Stock} from "../model/Stock.ts";
 
 const apiEndpoint = "";
 
@@ -19,7 +20,7 @@ export async function getAllStocks()  {
 }
 
 // Post
-export async function sendStock(stock: String) {
+export async function sendStockSubscription(stock: String) {
     try {
         const response = await axios.post(apiEndpoint, {
             stock: stock

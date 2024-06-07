@@ -1,10 +1,15 @@
 import {AppHeader} from "./components/AppHeader.tsx";
 import AppFooter from "./components/AppFooter.tsx";
 import ProjectLaunchpad from "./components/ProjectLaunchpad.tsx";
-import {ScaleDivider, ScaleTable} from "@telekom/scale-components-react";
+import {ScaleDivider} from "@telekom/scale-components-react";
 import StockTable from "./components/StockTable.tsx";
+import {Stock} from "./model/Stock.ts";
 
-
+const stockList: Stock[] = [
+    new Stock('Apple MacBook Pro 17"', 2000),
+    new Stock('Microsoft Surface Pro', 1500),
+    new Stock('Magic Mouse 2', 100),
+];
 
 export default function App() {
     return (
@@ -14,19 +19,7 @@ export default function App() {
             <ProjectLaunchpad/>
             <ScaleDivider/>
             <h1>Subscribe to the shares you want to receive updates on</h1>
-            <ScaleTable>
-                <table>
-                    <th>
-                        Test
-                    </th>
-                    <th>
-                        Test
-                    </th>
-                    <th>
-                        Test
-                    </th>
-                </table>
-            </ScaleTable>
+            <StockTable stocks={stockList}/>
             <AppFooter/>
         </>
     )
