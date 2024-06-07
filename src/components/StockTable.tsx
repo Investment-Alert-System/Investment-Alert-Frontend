@@ -6,7 +6,12 @@ interface StockTableProps {
     stocks: Stock[];
 }
 
-const StockTable: React.FC<StockTableProps> = ({ stocks }) => {
+let StockTable: React.FC<StockTableProps> = ({ stocks }) => {
+    const handleSubscribe = (stock: Stock) => {
+        console.log(`Subscribed to stock: ${stock.title}, Limit: ${stock.limit}`);
+        // send new subscription to backend
+    };
+
     return (
         <div className="relative overflow-x-auto">
             <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
@@ -37,7 +42,7 @@ const StockTable: React.FC<StockTableProps> = ({ stocks }) => {
                             />
                         </td>
                         <td className="px-6 py-4">
-                            <ScaleButton>
+                            <ScaleButton onClick={() => handleSubscribe(stock)}>
                                 Subscribe
                             </ScaleButton>
                         </td>

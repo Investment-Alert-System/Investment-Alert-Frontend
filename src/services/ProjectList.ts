@@ -1,7 +1,5 @@
 import {Project} from "../model/Project.ts";
 
-
-
 export default function getProjects(): Project[]{
     return [
         new Project(
@@ -72,7 +70,7 @@ export default function getProjects(): Project[]{
             "Discord",
             "A Discord Server where you can see the alerts",
             "",
-            "https://discord.gg/EByYdu7d",
+            "https://discord.gg/27DXbwMJ6C",
             "",
             "https://static-00.iconduck.com/assets.00/discord-icon-2048x2048-o5mluhz2.png"
         ),

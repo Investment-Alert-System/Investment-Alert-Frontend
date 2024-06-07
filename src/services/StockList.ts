@@ -1,16 +1,21 @@
-const axios = require('axios');
 import {Stock} from "../model/Stock.ts";
+import axios from 'axios';
 
-const apiEndpoint = "";
-
-console.log(apiEndpoint);
+//const apiEndpoint = "localhost:8080/datahandler/configuration/";
 
 // Get
-export async function getAllStocks()  {
+export function getAllStocks() {
     try {
-        const response = await axios.get(apiEndpoint);
+
+        let response = axios.get('http://localhost:8080/datahandler/configuration/getAllStocks');
         console.log(response);
-        let stockList: String[] = [];
+
+        let stockList: Stock[] = [
+            new Stock('Apple', 'AAPL', 2000),
+            new Stock('Microsoft', '', 1500),
+            new Stock('Google', '', 100),
+        ];
+
         return stockList;
 
     } catch (error) {
@@ -19,15 +24,11 @@ export async function getAllStocks()  {
     }
 }
 
+export function postNewLimitSubscription(stock: String, limit: number): void {
+    console.log(`${stock}, ${limit}`);
+}
+
 // Post
-export async function sendStockSubscription(stock: String) {
-    try {
-        const response = await axios.post(apiEndpoint, {
-            stock: stock
-        });
-        console.log(response);
-    } catch (error) {
-        console.error(error);
-        throw error;
-    }
+export function resetAllStockLimits(): void{
+
 }

@@ -3,13 +3,9 @@ import AppFooter from "./components/AppFooter.tsx";
 import ProjectLaunchpad from "./components/ProjectLaunchpad.tsx";
 import {ScaleDivider} from "@telekom/scale-components-react";
 import StockTable from "./components/StockTable.tsx";
-import {Stock} from "./model/Stock.ts";
+import {getAllStocks} from "./services/StockList.ts";
 
-const stockList: Stock[] = [
-    new Stock('Apple MacBook Pro 17"', 2000),
-    new Stock('Microsoft Surface Pro', 1500),
-    new Stock('Magic Mouse 2', 100),
-];
+const stockList = await getAllStocks();
 
 export default function App() {
     return (
