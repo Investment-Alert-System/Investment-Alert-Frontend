@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { AppHeader } from "./components/AppHeader.tsx";
 import AppFooter from "./components/AppFooter.tsx";
 import ProjectLaunchpad from "./components/ProjectLaunchpad.tsx";
-import { ScaleDivider } from "@telekom/scale-components-react";
 import StockTable from "./components/StockTable.tsx";
 import { getAllStocks } from "./services/StockList.ts";
 import { Stock } from "./model/Stock.ts";
@@ -33,7 +32,6 @@ export default function App() {
             <AppHeader/>
             <h1>Projects</h1>
             <ProjectLaunchpad/>
-            <ScaleDivider/>
             <h1>Subscribe to the shares you want to receive updates on</h1>
             {loading ? (
                 <p>Loading...</p>

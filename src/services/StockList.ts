@@ -1,6 +1,7 @@
 import {Stock} from "../model/Stock.ts";
 import axios from 'axios';
 import getAPIEndpoint from "../common/APISpecification.ts";
+import convertToStockArray from "./JsonConverter.ts";
 
 const apiEndpoint = getAPIEndpoint();
 
@@ -9,8 +10,7 @@ export async function getAllStocks(): Promise<Stock[]> {
     try {
         const response = await axios.get(`${apiEndpoint}/getAllStocks`);
         console.log(response.data);
-        const data = JSON.parse(response.toString());
-        return data.map((item: any) => new Stock(item.companyName, item.symbol));
+        return convertToStockArray(response.data);
 
     } catch (error) {
         console.error('Error fetching stock data:', error);
