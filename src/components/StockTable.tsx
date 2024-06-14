@@ -38,7 +38,7 @@ let StockTable: React.FC<StockTableProps> = ({ stocks }) => {
                             <ScaleTextField
                                 id={`limit-${index}`}
                                 label="Set here your limit!"
-                                value={stock.limit.toString()}
+                                value={stock.limit ? stock.limit.toString() : ''}
                             />
                         </td>
                         <td className="px-6 py-4">

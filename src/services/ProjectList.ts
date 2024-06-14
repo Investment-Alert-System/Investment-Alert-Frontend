@@ -28,7 +28,7 @@ export default function getProjects(): Project[]{
         ),
         new Project(
             "Grafana",
-            "A analytics and visualization web application.",
+            "An analytics and visualization web application.",
             "",
             "http://grafana.acceleratedit.de/",
             "",

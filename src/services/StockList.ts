@@ -1,25 +1,19 @@
 import {Stock} from "../model/Stock.ts";
 import axios from 'axios';
+import getAPIEndpoint from "../common/APISpecification.ts";
 
-const apiEndpoint = 'http://localhost:8080/datahandler/configuration';
+const apiEndpoint = getAPIEndpoint();
 
 // Get
-export function getAllStocks() {
+export async function getAllStocks(): Promise<Stock[]> {
     try {
-
-        let response = axios.get(`${apiEndpoint}/getAllStocks`);
-        console.log(response);
-
-        let stockList: Stock[] = [
-            new Stock('Apple', 'AAPL', 150),
-            new Stock('Microsoft', '', 400),
-            new Stock('Google', '', 170),
-        ];
-
-        return stockList;
+        const response = await axios.get(`${apiEndpoint}/getAllStocks`);
+        console.log(response.data);
+        const data = JSON.parse(response.toString());
+        return data.map((item: any) => new Stock(item.companyName, item.symbol));
 
     } catch (error) {
-        console.error(error);
+        console.error('Error fetching stock data:', error);
         throw error;
     }
 }

@@ -11,16 +11,16 @@ export function ProjectCard({ project }: ProjectCardProps) {
         <>
             <div className="w-1/6 m-6">
                 <ScaleCard to={project.to} target={project.target}>
-                    <div>
+                    <div className="flex justify-center items-center"> {/* Add these classes */}
                         <img
-                            className="h-48 justify-center items-center" // tailwindcss class
+                            className="h-48" // remove justify-center and items-center
                             src={project.iconSrc}
                             alt={`${project.title} Icon`}
                         />
-                        <div>
-                            <h3 className="text-lg font-bold">{project.title}</h3>
-                            <p>{project.description}</p>
-                        </div>
+                    </div>
+                    <div>
+                        <h3 className="text-lg font-bold">{project.title}</h3>
+                        <p>{project.description}</p>
                     </div>
                 </ScaleCard>
             </div>
