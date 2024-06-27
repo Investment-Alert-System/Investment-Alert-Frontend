@@ -1,6 +1,7 @@
 import React from 'react';
 import { ScaleButton, ScaleTextField } from "@telekom/scale-components-react";
 import { Stock } from "../model/Stock.ts";
+import {setAlertLimitPerSymbol} from "../services/StockList.ts";
 
 interface StockTableProps {
     stocks: Stock[];
@@ -9,6 +10,7 @@ interface StockTableProps {
 let StockTable: React.FC<StockTableProps> = ({ stocks }) => {
     const handleSubscribe = (stock: Stock) => {
         console.log(`Subscribed to stock: ${stock.title}, Limit: ${stock.limit}`);
+        setAlertLimitPerSymbol(JSON.stringify(stock));
         // send new subscription to backend
     };
 

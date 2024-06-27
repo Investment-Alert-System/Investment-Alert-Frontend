@@ -5,6 +5,7 @@ import convertToStockArray from "./JsonConverter.ts";
 
 const apiEndpoint = getAPIEndpoint();
 
+// #################################### GET Functions ####################################
 // Get
 export async function getAllStocks(): Promise<Stock[]> {
     try {
