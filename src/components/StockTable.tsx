@@ -1,17 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ScaleButton, ScaleTextField } from "@telekom/scale-components-react";
 import { Stock } from "../model/Stock.ts";
-import {setAlertLimitPerSymbol} from "../services/StockList.ts";
+import { setAlertLimitPerSymbol } from "../services/StockList.ts";
+import { StockLimit } from "../model/StockLimit.ts";
 
 interface StockTableProps {
     stocks: Stock[];
 }
 
 let StockTable: React.FC<StockTableProps> = ({ stocks }) => {
-    const handleSubscribe = (stock: Stock) => {
-        console.log(`Subscribed to stock: ${stock.title}, Limit: ${stock.limit}`);
-        setAlertLimitPerSymbol(JSON.stringify(stock));
-        // send new subscription to backend
+    const [stockLimits, setStockLimits] = useState<{ [symbol: string]: number }>({});
+
+    const handleLimitChange = (symbol: string, limit: number) => {
+        setStockLimits(prevLimits => ({
+            ...prevLimits,
+            [symbol]: limit
+        }));
+    };
+
+    const handleSubscribe = async (stock: Stock) => {
+        // Aktualisiere das Limit für das ausgewählte Stock
+        const limitElement = document.getElementById(`limit-${stock.symbol}`) as HTMLInputElement;
+        const newLimit = parseFloat(limitElement.value);
+        handleLimitChange(stock.symbol, newLimit);
+
+        const limit = stockLimits[stock.symbol] || newLimit;
+        console.log(`Subscribed to stock: ${stock.title}, Limit: ${limit}`);
+        let stockLimit: StockLimit = new StockLimit(stock.symbol, limit);
+        try {
+            await setAlertLimitPerSymbol(stockLimit);
+            console.log(stockLimit);
+        } catch (error) {
+            console.error('Error in handleSubscribe:', error);
+        }
     };
 
     return (
@@ -21,6 +42,9 @@ let StockTable: React.FC<StockTableProps> = ({ stocks }) => {
                 <tr>
                     <th scope="col" className="px-6 py-3">
                         <h1>Stock name</h1>
+                    </th>
+                    <th scope="col" className="px-6 py-3">
+                        <h1>Symbol</h1>
                     </th>
                     <th scope="col" className="px-6 py-3">
                         <h1>Limit</h1>
@@ -37,10 +61,14 @@ let StockTable: React.FC<StockTableProps> = ({ stocks }) => {
                             {stock.title}
                         </th>
                         <td className="px-6 py-4">
+                            {stock.symbol}
+                        </td>
+                        <td className="px-6 py-4">
                             <ScaleTextField
-                                id={`limit-${index}`}
+                                id={`limit-${stock.symbol}`}
                                 label="Set here your limit!"
-                                value={stock.limit ? stock.limit.toString() : ''}
+                                value={stockLimits[stock.symbol] !== undefined ? stockLimits[stock.symbol].toString() : ''}
+                                onChange={(e: any) => handleLimitChange(stock.symbol, parseFloat(e.target.value))}
                             />
                         </td>
                         <td className="px-6 py-4">

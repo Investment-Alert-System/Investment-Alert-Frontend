@@ -42,9 +42,9 @@ export async function setAlertLimitPerSymbol(stockLimit: StockLimit) {
 }
 
 // POST Funktion für setDataPoints
-export async function setDataPoints(dataPoints: string[]): Promise<void> {
+export async function setDataPoints(dataPoint: string): Promise<void> {
     try {
-        const response = await axios.post(`${apiEndpoint}/setDataPoints`, dataPoints, {
+        const response = await axios.post<string>(`${apiEndpoint}/setDataPoints`, dataPoint, {
             headers: {
                 'Content-Type': 'application/json'
             }

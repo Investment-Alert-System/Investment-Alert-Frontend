@@ -4,6 +4,6 @@ import {StockLimit} from "../model/StockLimit.ts";
 let stockList = await getAllStocks();
 //console.log(stockList);
 
-let Apple = new StockLimit("Apple Inc.", 100);
+let Apple = new StockLimit("AAPL", 201);
 let stTimer = await setAlertLimitPerSymbol(Apple);
 console.log(stTimer);
