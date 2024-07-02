@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ScaleButton, ScaleTextField } from "@telekom/scale-components-react";
+import {ScaleButton, ScaleTag, ScaleTextField} from "@telekom/scale-components-react";
 import { Stock } from "../model/Stock.ts";
 import { setAlertLimitPerSymbol } from "../services/StockList.ts";
 import { StockLimit } from "../model/StockLimit.ts";
@@ -70,7 +70,9 @@ let StockTable: React.FC<StockTableProps> = ({ stocks }) => {
                             {stock.title}
                         </th>
                         <td className="px-6 py-4">
-                            {stock.symbol}
+                            <ScaleTag>
+                                {stock.symbol}
+                            </ScaleTag>
                         </td>
                         <td className="px-6 py-4">
                             <ScaleTextField
