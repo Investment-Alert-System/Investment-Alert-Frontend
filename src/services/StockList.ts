@@ -42,9 +42,9 @@ export async function setAlertLimitPerSymbol(stockLimit: StockLimit) {
 }
 
 // POST Funktion für setDataPoints
-export async function setDataPoints(dataPoint: string): Promise<void> {
+export async function setDataPoints(dataPoints: string[]): Promise<void> {
     try {
-        const response = await axios.post<string>(`${apiEndpoint}/setDataPoints`, dataPoint, {
+        const response = await axios.post<string>(`${apiEndpoint}/setDataPoints`, dataPoints, {
             headers: {
                 'Content-Type': 'application/json'
             }
@@ -58,8 +58,7 @@ export async function setDataPoints(dataPoint: string): Promise<void> {
 
 // #################################### DELETE Functions ####################################
 
-// DELETE Funktionen für die Endpunkte
-async function deleteAlerting(): Promise<void> {
+export async function deleteAlerting(): Promise<void> {
     try {
         const response = await axios.delete(`${apiEndpoint}/deleteAlerting`);
         console.log('deleteAlerting response:', response.data);
@@ -70,22 +69,12 @@ async function deleteAlerting(): Promise<void> {
 }
 
 
-async function deleteSymbols(): Promise<void> {
+export async function deleteSymbols(): Promise<void> {
     try {
         const response = await axios.delete(`${apiEndpoint}/deleteSymbols`);
         console.log('deleteSymbols response:', response.data);
     } catch (error) {
         console.error('Error in deleteSymbols:', error);
         throw error;
-    }
-}
-
-export async function resetAllStockLimits(): Promise<void> {
-    try {
-        await deleteAlerting();
-        await deleteSymbols();
-        console.log('All stock limits have been reset.');
-    } catch (error) {
-        console.error('Error in resetAllStockLimits:', error);
     }
 }

@@ -1,9 +1,17 @@
-import {getAllStocks, setAlertLimitPerSymbol} from "./StockList.ts";
-import {StockLimit} from "../model/StockLimit.ts";
+import {deleteSymbol, deleteSymbols, getAllStocks, setAlertLimitPerSymbol, setDataPoints} from "./StockList.ts";
+//import {StockLimit} from "../model/StockLimit.ts";
 
-let stockList = await getAllStocks();
+//let stockList = await getAllStocks();
 //console.log(stockList);
 
-let Apple = new StockLimit("AAPL", 201);
+
+// POST new Limit
+/*let Apple = new StockLimit("AAPL", 201);
 let stTimer = await setAlertLimitPerSymbol(Apple);
-console.log(stTimer);
+console.log(stTimer);*/
+
+let dataPoints: string[] = ["AAPL", "MSFT", "GOOG", "AMZN", "TSLA"];
+await setDataPoints(dataPoints);
+// DELETE
+
+//await deleteSymbols();

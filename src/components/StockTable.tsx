@@ -9,7 +9,7 @@ interface StockTableProps {
 }
 
 let StockTable: React.FC<StockTableProps> = ({ stocks }) => {
-    const [stockLimits, setStockLimits] = useState<{ [symbol: string]: number }>({});
+    const [stockLimits, setStockLimits] = useState<{[symbol: string]: number }>({});
 
     const handleLimitChange = (symbol: string, limit: number) => {
         setStockLimits(prevLimits => ({
@@ -17,6 +17,10 @@ let StockTable: React.FC<StockTableProps> = ({ stocks }) => {
             [symbol]: limit
         }));
     };
+
+    const deleteSubcription = (symbol: string): void => {
+        console.log("Delete subscription for stock: " + symbol);
+    }
 
     const handleSubscribe = async (stock: Stock) => {
         // Aktualisiere das Limit für das ausgewählte Stock
@@ -52,12 +56,17 @@ let StockTable: React.FC<StockTableProps> = ({ stocks }) => {
                     <th scope="col" className="px-6 py-3">
                         <h1>Subscribe</h1>
                     </th>
+                    <th scope="col" className="px-6 py-3">
+                        <h1>Delete subscription</h1>
+                    </th>
                 </tr>
                 </thead>
+
                 <tbody>
                 {stocks.map((stock, index) => (
                     <tr key={index} className="bg-white border-b dark:bg-telekom-gray dark:border-gray-700">
-                        <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                        <th scope="row"
+                            className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                             {stock.title}
                         </th>
                         <td className="px-6 py-4">
@@ -74,6 +83,11 @@ let StockTable: React.FC<StockTableProps> = ({ stocks }) => {
                         <td className="px-6 py-4">
                             <ScaleButton onClick={() => handleSubscribe(stock)}>
                                 Subscribe
+                            </ScaleButton>
+                        </td>
+                        <td className="px-6 py-4">
+                            <ScaleButton onClick={() => deleteSubcription(stock.symbol)}>
+                                Delete
                             </ScaleButton>
                         </td>
                     </tr>
