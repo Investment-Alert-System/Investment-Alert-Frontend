@@ -1,13 +1,9 @@
-import axios from 'axios';
-import {Stock} from "../model/Stock.ts";
+import {getAllStocks, setAlertLimitPerSymbol} from "./StockList.ts";
+import {StockLimit} from "../model/StockLimit.ts";
 
-let response = await axios.get('http://localhost:8080/datahandler/configuration/getAllStocks');
-console.log(response.data);
+let stockList = await getAllStocks();
+//console.log(stockList);
 
-
-function convertToStockArray(data: {symbol: string, companyName: string}[]): Stock[] {
-    return data.map(item => new Stock(item.companyName, item.symbol));
-}
-
-console.log(convertToStockArray(response.data));
-
+let Apple = new StockLimit("Apple Inc.", 100);
+let stTimer = await setAlertLimitPerSymbol(Apple);
+console.log(stTimer);

@@ -2,6 +2,7 @@ import {Stock} from "../model/Stock.ts";
 import axios from 'axios';
 import getAPIEndpoint from "../common/APISpecification.ts";
 import convertToStockArray from "./JsonConverter.ts";
+import {StockLimit} from "../model/StockLimit.ts";
 
 const apiEndpoint = getAPIEndpoint();
 
@@ -21,14 +22,19 @@ export async function getAllStocks(): Promise<Stock[]> {
 
 // #################################### POST Functions ####################################
 // POST Funktion für setAlerts
-export async function setAlertLimitPerSymbol(alert: string): Promise<void> {
+export async function setAlertLimitPerSymbol(stockLimit: StockLimit) {
+    console.log(stockLimit);
     try {
-        const response = await axios.post(`${apiEndpoint}/setAlerts`, alert, {
+        // Konvertieren Sie das stockLimit-Objekt in das erwartete Format
+        let dataToSend = {[stockLimit.symbol]: stockLimit.limit};
+
+        const response = await axios.post(`${apiEndpoint}/setAlerts`, dataToSend, {
             headers: {
                 'Content-Type': 'application/json'
             }
         });
         console.log('setAlertLimitPerSymbol response:', response.data);
+        return response;
     } catch (error) {
         console.error('Error in setAlertLimitPerSymbol:', error);
         throw error;
