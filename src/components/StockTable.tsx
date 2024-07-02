@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
-import {ScaleButton, ScaleTag, ScaleTextField} from "@telekom/scale-components-react";
+import {
+    ScaleButton,
+    ScaleTag,
+    ScaleTextField
+} from "@telekom/scale-components-react";
 import { Stock } from "../model/Stock.ts";
 import { setAlertLimitPerSymbol } from "../services/StockList.ts";
 import { StockLimit } from "../model/StockLimit.ts";
@@ -18,9 +22,6 @@ let StockTable: React.FC<StockTableProps> = ({ stocks }) => {
         }));
     };
 
-    const deleteSubcription = (symbol: string): void => {
-        console.log("Delete subscription for stock: " + symbol);
-    }
 
     const handleSubscribe = async (stock: Stock) => {
         // Aktualisiere das Limit für das ausgewählte Stock
@@ -56,9 +57,6 @@ let StockTable: React.FC<StockTableProps> = ({ stocks }) => {
                     <th scope="col" className="px-6 py-3">
                         <h1>Subscribe</h1>
                     </th>
-                    <th scope="col" className="px-6 py-3">
-                        <h1>Delete subscription</h1>
-                    </th>
                 </tr>
                 </thead>
 
@@ -85,11 +83,6 @@ let StockTable: React.FC<StockTableProps> = ({ stocks }) => {
                         <td className="px-6 py-4">
                             <ScaleButton onClick={() => handleSubscribe(stock)}>
                                 Subscribe
-                            </ScaleButton>
-                        </td>
-                        <td className="px-6 py-4">
-                            <ScaleButton onClick={() => deleteSubcription(stock.symbol)}>
-                                Delete
                             </ScaleButton>
                         </td>
                     </tr>
