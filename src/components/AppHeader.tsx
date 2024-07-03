@@ -1,4 +1,4 @@
-import {ScaleAppHeader} from "@telekom/scale-components-react";
+import {ScaleAppHeader, ScaleNavIcon} from "@telekom/scale-components-react";
 
 export function AppHeader(){
     return (

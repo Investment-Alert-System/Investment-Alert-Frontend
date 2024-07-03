@@ -5,6 +5,8 @@ import ProjectLaunchpad from "./components/ProjectLaunchpad.tsx";
 import StockTable from "./components/StockTable.tsx";
 import { getAllStocks } from "./services/StockList.ts";
 import { Stock } from "./model/Stock.ts";
+import DeleteButtons from "./components/DeleteButtons.tsx";
+import DataPointGroup from "./components/DataPointGroup.tsx";
 
 export default function App() {
     const [stocks, setStocks] = useState<Stock[]>([]);
@@ -30,7 +32,7 @@ export default function App() {
     return (
         <>
             <AppHeader/>
-            <h1>Projects</h1>
+            <h1>Services</h1>
             <ProjectLaunchpad/>
             <h1>Subscribe to the shares you want to receive updates on</h1>
             {loading ? (
@@ -40,6 +42,8 @@ export default function App() {
             ) : (
                 <StockTable stocks={stocks}/>
             )}
+            <DataPointGroup/>
+            <DeleteButtons/>
             <AppFooter/>
         </>
     )
