@@ -52,7 +52,7 @@ export default function getProjects(): Project[]{
         ),
         new Project(
             "Stock-Data-Streamer Repository",
-            "A Git repository hosting service.",
+            "The repository for the stock data streamer.",
             "",
             "https://github.com/Investment-Alert-System/Investment-Alert-Frontend",
             "",
@@ -60,7 +60,7 @@ export default function getProjects(): Project[]{
         ),
         new Project(
             "Kubernetes Configuration Repository",
-            "A Git Repository where you can see the kubernetes configuration",
+            "The repository for the Kubernetes configuration with terraform.",
             "",
             "https://github.com/Investment-Alert-System/Investment-Alert-Frontend",
             "",
@@ -76,7 +76,7 @@ export default function getProjects(): Project[]{
         ),
         new Project(
             "Miro Board",
-            "A Git repository hosting service.",
+            "A Miro Board where you can see the project progress",
             "",
             "https://miro.com/app/board/uXjVNjJ9k4E=/?share_link_id=714968263042",
             "",
